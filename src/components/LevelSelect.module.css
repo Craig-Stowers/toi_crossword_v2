@@ -1,0 +1,44 @@
+.levelsWrapper {
+   display: flex;
+   width: 440px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 40px;
+}
+
+.level {
+   position: relative;
+   width: 70px;
+   height: 70px;
+   margin-left: auto;
+   margin-right: auto;
+   border: 3px solid #3c3c3c;
+}
+
+.unlocked {
+   font-family: "Roboto Slab", serif;
+   font-size: 34px;
+   font-weight: bold;
+   color: white;
+
+   background-color: var(--primary);
+
+   cursor: pointer;
+
+   line-height: 64px;
+   vertical-align: middle;
+}
+
+.unlocked:hover {
+   filter: brightness(120%);
+}
+
+.locked {
+   display: flex;
+   height: 100%;
+}
+
+.locked img {
+   width: 23px;
+   margin: auto;
+}

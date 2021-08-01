@@ -1,0 +1,26 @@
+.titlePage {
+   padding-top: 13%;
+}
+
+.panel {
+   margin-top: 10px;
+}
+
+.panel > img {
+   width: 550px;
+   margin-bottom: 140px;
+}
+
+.buttons {
+   padding-bottom: 50px;
+}
+
+.buttons img {
+   margin: 4px;
+   width: 140px;
+}
+
+.buttons img:hover {
+   filter: brightness(140%);
+   cursor: pointer;
+}

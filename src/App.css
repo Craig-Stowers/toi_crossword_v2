@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+.noselect {
+   -webkit-touch-callout: none; /* iOS Safari */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Old versions of Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+   user-select: none; /* Non-prefixed version, currently
+                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+:root {
+   --primary: #18a398;
+   --secondary: #d3e7e8;
+   --title: #4f58a6;
+}
+
+.App {
+   text-align: center;
+   width: 100%;
+   font-family: "Open Sans", sans-serif;
+}
+
+h2 {
+   font-family: "Roboto Slab", serif;
+   font-size: 28px;
+   font-weight: bold;
+   color: var(--title);
+}
+
+.background {
+   position: fixed;
+   height: 100vh;
+   width: 100%;
+}
+
+.background.bg1 {
+   background-color: var(--primary);
+}
+.background.bg2 {
+   background-color: var(--secondary);
+}
+
+.gameWrapper {
+   padding: 20px;
+   min-height: 700px;
+}
+
+img {
+   user-drag: none;
+   user-select: none;
+   -moz-user-select: none;
+   -webkit-user-drag: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+}
+
+.footer {
+   text-align: left;
+}
+
+.seeAnswers {
+   text-align: left;
+   padding: 5px;
+   padding-top: 2px;
+   margin-left: -5px;
+   display: inline-block;
+}
+
+.seeAnswers:hover {
+   background-color: var(--title);
+}
+
+.seeAnswers:hover span {
+   color: white;
+}
+
+.seeAnswers:hover span:after {
+   color: white;
+   border-bottom: 2px white solid;
+}
+
+.seeAnswers span {
+   font-weight: 600;
+   font-size: 18px;
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+}
+
+/* .seeAnswers span:hover {
+   background-color: purple;
+   color: white;
+} */
+
+.seeAnswers span:after {
+   content: "";
+   position: absolute;
+   bottom: 0px;
+   left: 0%;
+   display: inline-block;
+   width: 100%;
+
+   border-bottom: 2px var(--title) solid;
+}
+
+.generic-button {
+   height: 40px;
+   cursor: pointer;
+}
+.generic-button:hover {
+   filter: brightness(120%);
+}
+
+.generic-button.disable {
+   opacity: 0.35;
+   cursor: unset;
+   pointer-events: none;
+}
+
+.generic-button.disable:hover {
+   filter: brightness(100%);
+}
+
+.levelTitle {
+   position: relative;
+   color: #3c3c3c;
+
+   display: flex;
+   margin-top: 60px;
+   margin-bottom: 4px;
+}
+
+.levelTitle h3 {
+   margin-left: auto;
+   margin-right: auto;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.levelTitle .seeAnswers {
+   position: absolute;
+   right: 0px;
+   top: -3px;
+}

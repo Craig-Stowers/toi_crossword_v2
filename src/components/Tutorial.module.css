@@ -1,0 +1,66 @@
+.stepsWrapper {
+   margin-top: 10px;
+   margin-left: auto;
+   margin-right: auto;
+   display: flex;
+}
+
+.step {
+   width: 27%;
+   text-align: center;
+}
+
+.stepx2 {
+   width: 45%;
+   margin-right: auto;
+}
+
+.step2 {
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.step2.stepx2 {
+   margin-left: auto;
+   margin-right: unset;
+}
+
+.stepImageContainer {
+   background-color: bisque;
+   display: flex;
+}
+
+.step img {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.stepText1,
+.stepText2,
+.stepText3 {
+   margin-left: auto;
+   position: relative;
+   padding-left: 19px;
+   text-align: left;
+}
+
+.stepText1:before {
+   font-weight: bold;
+   content: "1.";
+   position: absolute;
+   left: 0px;
+}
+
+.stepText2:before {
+   font-weight: bold;
+   content: "2.";
+   position: absolute;
+   left: 0px;
+}
+.stepText3:before {
+   font-weight: bold;
+   content: "3.";
+   position: absolute;
+   left: 0px;
+}

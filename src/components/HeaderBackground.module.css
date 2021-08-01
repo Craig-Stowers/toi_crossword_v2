@@ -1,0 +1,15 @@
+.headerBackground {
+   overflow: hidden;
+   position: absolute;
+   top: 0px;
+   width: 100%;
+   min-width: 780px;
+   background-color: var(--primary);
+}
+
+.headerBackground img {
+   width: 1400px;
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%, 0%);
+}

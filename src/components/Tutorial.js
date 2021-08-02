@@ -24,8 +24,8 @@ function Tutorial(props) {
                   <img src={step1} />
 
                   <div className={classes.stepText1}>
-                     Click in a box to begin typing the answer one letter at a
-                     time.
+                     Click or tab in a box to begin typing the answer one letter
+                     at a time.
                   </div>
                </div>
                <div className={`${classes.step} ${classes.step2}`}>

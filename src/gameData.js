@@ -433,7 +433,7 @@ allImages.push(require(`./images/ui/next-level.png`).default);
 allImages.push(require(`./images/ui/exit-game.png`).default);
 allImages.push(require(`./images/ui/exit-level.png`).default);
 allImages.push(require(`./images/ui/main-menu.png`).default);
-
+allImages.push(require(`./images/ui/padlock.png`).default);
 allImages.push(require(`./images/ui/step1.png`).default);
 allImages.push(require(`./images/ui/step2.png`).default);
 allImages.push(require(`./images/ui/step3.png`).default);

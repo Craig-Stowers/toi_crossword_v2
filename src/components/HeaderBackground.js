@@ -1,5 +1,5 @@
 import classes from "./HeaderBackground.module.css";
-import headerBackImage from "../images/ui/header-back-spotdifference.png";
+import headerBackImage from "../images/ui/header-back-crossword.png";
 
 function HeaderBackground(props) {
    return (

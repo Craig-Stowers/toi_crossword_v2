@@ -12,7 +12,7 @@ import LevelSelect from "./components/LevelSelect";
 
 import Feedback from "./components/Feedback";
 import Congrats from "./components/Congrats";
-import Game from "./components/SpotTheDifference";
+import Game from "./components/Crossword";
 
 import { Button, Dropdown } from "react-bootstrap";
 import { gameData, allImages } from "./gameData";

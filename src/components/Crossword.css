@@ -1,0 +1,130 @@
+.crossword {
+   margin-top: 20px;
+}
+
+.crossword__container {
+   background-color: var(--primary);
+   padding-top: 40px;
+   padding-bottom: 40px;
+}
+
+.crossword__container__grid-wrapper {
+   position: relative;
+   /* width: 600px;
+   height: 600px; */
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.crossword__cell {
+   cursor: pointer;
+   fill: #ffffff;
+
+   /* pointer-events: none; */
+}
+
+.crossword__grid-background {
+   fill: var(--primary);
+}
+
+.crossword__cell-text {
+   font-weight: bold;
+
+   cursor: pointer;
+   fill: #1b324b;
+   font: bold 22px "Open Sans";
+   /* pointer-events: none; */
+}
+
+.crossword__cell.highlight {
+   cursor: pointer;
+
+   fill: #d16267;
+
+   /* pointer-events: none; */
+}
+
+.crossword__cell.select {
+   fill: #dd898d;
+}
+
+.crossword__cell.correct {
+   fill: #78cbc0;
+
+   /* pointer-events: none; */
+}
+
+.content {
+   color: #121212;
+}
+
+.crossword__hidden-input-wrapper {
+   position: absolute;
+}
+
+.crossword__hidden-input {
+   border: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   background-color: transparent;
+   font-size: 1rem;
+   font-family: "Guardian Text Egyptian Web", Georgia, serif;
+   font-weight: 800;
+   text-anchor: middle;
+   cursor: pointer;
+}
+
+.crossword__cell-number {
+   fill: #1b324b;
+   font: bold 10px "Open Sans";
+}
+
+.hints {
+   font-size: 16px;
+   /* font-weight: bold; */
+   color: #1b324b;
+
+   text-align: left;
+   display: flex;
+   background-color: white;
+}
+
+.hints h4 {
+   font-weight: bold;
+   font-size: 18px;
+   margin-bottom: 10px;
+   background-color: var(--color3);
+   padding: 14px;
+   color: white;
+}
+
+.hintsAcross {
+   width: 50%;
+}
+
+.hintsDown {
+   width: 50%;
+}
+
+.hintsDown h4 {
+   border-left: solid white 1px;
+}
+
+.hints ul {
+   list-style-type: none;
+   padding-left: 14px;
+}
+
+.hints li {
+   margin-bottom: 8px;
+   font-weight: 500;
+   cursor: pointer;
+}
+
+.hints .highlight {
+   color: var(--color3);
+   /* color: black; */
+   /* font-weight: bold; */
+}

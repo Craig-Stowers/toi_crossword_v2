@@ -11,31 +11,36 @@ function Tutorial(props) {
       <div>
          <div className={page.panel}>
             <h2>HOW TO PLAY</h2>
-            <h3>How keen are your eyes? Let’s see what you can spot.</h3>
+            <h3>Test your word skills on some crossword puzzles.</h3>
             <p>
                There are five levels to play through, starting nice and easy and
-               increasing in difficulty as the levels increase. Find all
-               differences in a game to unlock the next level.
+               increasing in difficulty as the levels increase. Complete the
+               crossword to unlock the next level.
             </p>
             <h3>Instructions</h3>
 
-            <div className={`${classes.stepsWrapper} x2`}>
-               <div className={`${classes.step} ${classes.stepx2}`}>
+            <div className={`${classes.stepsWrapper}`}>
+               <div className={`${classes.step}`}>
                   <img src={step1} />
 
                   <div className={classes.stepText1}>
-                     Click on the picture on the right where you have spotted a
-                     difference.
+                     Click in a box to begin typing the answer one letter at a
+                     time.
                   </div>
                </div>
-               <div
-                  className={`${classes.step} ${classes.step2} ${classes.stepx2}`}
-               >
+               <div className={`${classes.step} ${classes.step2}`}>
                   <img src={step2} />
 
                   <div className={classes.stepText2}>
-                     If you’re correct, you’ll see a green circle. If you’re
-                     wrong, you’ll get a notice to try again..
+                     If the word is not correct all boxes will remain red.
+                     Select the first box and try again.
+                  </div>
+               </div>
+               <div className={`${classes.step} ${classes.step3}`}>
+                  <img src={step3} />
+
+                  <div className={classes.stepText3}>
+                     If you are correct, all of the boxes will turn green.
                   </div>
                </div>
             </div>

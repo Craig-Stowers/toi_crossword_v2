@@ -12,9 +12,10 @@
 }
 
 :root {
-   --primary: #18a398;
-   --secondary: #d3e7e8;
-   --title: #4f58a6;
+   --primary: #1b324b;
+   --secondary: #cdd8e6;
+   --color3: #20aa97;
+   --title: #198677;
 }
 
 .App {
@@ -129,7 +130,7 @@ img {
    color: #3c3c3c;
 
    display: flex;
-   margin-top: 60px;
+   margin-top: 40px;
    margin-bottom: 4px;
 }
 

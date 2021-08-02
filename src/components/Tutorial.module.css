@@ -6,7 +6,7 @@
 }
 
 .step {
-   width: 27%;
+   width: 30%;
    text-align: center;
 }
 
@@ -34,6 +34,7 @@
    width: 100%;
    margin-left: auto;
    margin-right: auto;
+   margin-bottom: 10px;
 }
 
 .stepText1,

@@ -77,7 +77,11 @@ function UniformScale(props) {
    useEffect(() => {
       setTimeout(() => {
          setRefresh(!refresh);
-      }, 200);
+      }, 100);
+
+      setTimeout(() => {
+         setRefresh(!refresh);
+      }, 1000);
    }, [props.refreshOnChange]);
 
    useEffect(() => {

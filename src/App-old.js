@@ -1,8 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-import scorm from "./scorm.js";
-
 import { useState, useLayoutEffect, useEffect, useRef } from "react";
 
 import UniformScale from "./components/UniformScale";
@@ -48,7 +46,7 @@ function App() {
    const [selectedLevel, setSelectedLevel] = useState(0);
    const [inGameTutorial, setInGameTutorial] = useState(false);
 
-   const [showCongrats, setShowCongrats] = useState(false);
+   const [levelCompleted, setLevelCompleted] = useState(false);
    const [showCheats, setShowCheats] = useState(false);
    const [showAnswers, setShowAnswers] = useState(false);
    const [feedback, setFeedback] = useState(null);
@@ -67,47 +65,6 @@ function App() {
    const gameWrapper = useRef(null);
 
    const [reload, setReload] = useState(false);
-
-   const [initScorm, setInitScorm] = useState(false);
-
-   useEffect(() => {
-      if (initScorm) return;
-
-      scorm.initScorm();
-      setInitScorm(true);
-
-      const localData = JSON.parse(window.localStorage.getItem("great-minds"));
-      const lmsData = scorm.scormProcessGetValue("cmi.suspend_data");
-
-      if (lmsData) {
-         setLevelsUnlocked(JSON.parse(lmsData).unlocks);
-      } else if (localData) {
-         //setLevelsUnlocked(localData.unlocks);
-      }
-
-      scorm.scormProcessSetValue("cmi.core.score.raw", "100");
-      scorm.setLessonStatusComplete();
-   }, [initScorm]);
-
-   const levelCompleted = () => {
-      let unlocks = [...levelsUnlocked];
-      if (selectedLevel + 1 <= gameData.length - 1) {
-         unlocks[selectedLevel + 1] = true;
-         setLevelsUnlocked(unlocks);
-      }
-
-      scorm.scormProcessSetValue(
-         "cmi.suspend_data",
-         JSON.stringify({ unlocks: unlocks })
-      );
-      // } else {
-      window.localStorage.setItem(
-         "great-minds",
-         JSON.stringify({ unlocks: unlocks })
-      );
-
-      setShowCongrats(true);
-   };
 
    useLayoutEffect(() => {
       setReload(true);
@@ -246,7 +203,14 @@ function App() {
                      showGame={!inGameTutorial}
                      gameData={gameData}
                      selectedLevel={selectedLevel}
-                     onLevelCompleted={levelCompleted}
+                     onLevelCompleted={() => {
+                        let unlocks = [...levelsUnlocked];
+                        if (selectedLevel + 1 <= gameData.length - 1) {
+                           unlocks[selectedLevel + 1] = true;
+                           setLevelsUnlocked(unlocks);
+                        }
+                        setLevelCompleted(true);
+                     }}
                      showAnswers={showAnswers}
                      onLoaded={() => {
                         setGameLoaded(true);
@@ -291,7 +255,7 @@ function App() {
                            setShowAnswers(true);
                         }}
                      >
-                        <span>Check answers</span>
+                        <span>See answers</span>
                      </div>
                   </div>
                )}
@@ -309,19 +273,19 @@ function App() {
          </Feedback>
 
          <Congrats
-            show={showCongrats}
+            show={levelCompleted}
             finalLevel={selectedLevel === gameData.length - 1}
             onMainMenu={() => {
                handleMainMenuClick();
-               setShowCongrats(false);
+               setLevelCompleted(false);
             }}
             onNextLevel={() => {
                setSelectedLevel(selectedLevel + 1);
-               setShowCongrats(false);
+               setLevelCompleted(false);
             }}
             onLevelSelect={() => {
                handleExitLevel();
-               setShowCongrats(false);
+               setLevelCompleted(false);
             }}
          >
             {" "}
@@ -346,6 +310,10 @@ function App() {
                </>
             )}
          </Congrats>
+
+         <div id="exitbuttonpanel" style={{ display: "none" }}>
+            <a href="#">Exit</a>
+         </div>
       </div>
    );
 }

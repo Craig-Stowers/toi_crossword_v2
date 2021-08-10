@@ -231,11 +231,8 @@ class Crossword extends Component {
                const input = this.state.inputData[i][j];
 
                if (input === cell.letter && cell.word.length > 1) {
-                  console.log("continue");
                   continue;
                }
-
-               console.log(input);
 
                if (input) {
                   attempted = true;
@@ -243,6 +240,7 @@ class Crossword extends Component {
             }
          }
       }
+
       return attempted;
    };
 
@@ -268,11 +266,11 @@ class Crossword extends Component {
          newIncompleteWords[this.state.selectedWord] = this.checkWordAttemtped(
             this.state.selectedWord
          );
-         // if (cell.word.length == 2) {
-         //    newIncompleteWords[cell.word[1]] = this.checkWordAttemtped(
-         //       cell.word[1]
-         //    );
-         // }
+         if (cell.word.length == 2) {
+            newIncompleteWords[cell.word[1]] = this.checkWordAttemtped(
+               cell.word[1]
+            );
+         }
       }
 
       this.setState({
@@ -530,7 +528,7 @@ class Crossword extends Component {
                   )}
                   <text
                      x={xIndex * boxSize + 20}
-                     y={yIndex * boxSize + 28}
+                     y={yIndex * boxSize + 28.5}
                      className="crossword__cell-text"
                      textAnchor="middle"
                   >

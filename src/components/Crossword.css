@@ -37,7 +37,7 @@
 }
 
 .crossword__cell.incomplete {
-   fill: #e78c91;
+   fill: #de6167;
    /* opacity: 0.8; */
 
    /* pointer-events: none; */
@@ -46,13 +46,13 @@
 .crossword__cell.highlight {
    cursor: pointer;
 
-   fill: #c2cfdd;
+   fill: #eaa4a7;
 
    /* pointer-events: none; */
 }
 
 .crossword__cell.select {
-   fill: #dbe1e7;
+   fill: #f3d3d5;
 }
 
 .crossword__cell.correct {

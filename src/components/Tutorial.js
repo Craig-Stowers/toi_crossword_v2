@@ -24,7 +24,8 @@ function Tutorial(props) {
                   <img src={step1} />
 
                   <div className={classes.stepText1}>
-                     Click or tab in a box to begin typing the answer one letter
+                     Use your mouse to click into a box or use the Tab key to
+                     move between boxes and start typing the answer one letter
                      at a time.
                   </div>
                </div>
@@ -32,15 +33,15 @@ function Tutorial(props) {
                   <img src={step2} />
 
                   <div className={classes.stepText2}>
-                     If the word is not correct all boxes will remain red.
-                     Select the first box and try again.
+                     If the answer is correct, the boxes will turn green.
                   </div>
                </div>
                <div className={`${classes.step} ${classes.step3}`}>
                   <img src={step3} />
 
                   <div className={classes.stepText3}>
-                     If you are correct, all of the boxes will turn green.
+                     If the answer is incorrect, the boxes will turn red and
+                     you’ll need to try again.
                   </div>
                </div>
             </div>

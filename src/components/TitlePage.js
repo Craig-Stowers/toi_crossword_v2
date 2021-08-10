@@ -25,7 +25,18 @@ function TitlePage(props) {
                         props.onHowToClick();
                      }}
                   />
-                  <img src={exit} />
+                  <img
+                     src={exit}
+                     onClick={() => {
+                        const exitButton =
+                           document.getElementById("exitButton");
+                        setTimeout(() => {
+                           if (!exitButton) return;
+                           console.log("exit");
+                           exitButton.click();
+                        }, 50);
+                     }}
+                  />
                </div>
             </div>
          </div>

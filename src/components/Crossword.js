@@ -75,6 +75,7 @@ class Crossword extends Component {
          selection: [-100, 0],
          selectedWord: null,
          correctWords: [],
+         incompleteWords: [],
       };
 
       this.inputRef = createRef();
@@ -220,6 +221,31 @@ class Crossword extends Component {
       return wordPassed;
    };
 
+   checkWordAttemtped = (wordIndex) => {
+      let attempted = false;
+      for (var i = 0; i < this.boardArray.length; i++) {
+         let row = this.boardArray[i];
+         for (var j = 0; j < row.length; j++) {
+            let cell = row[j];
+            if (cell && cell.word.includes(wordIndex)) {
+               const input = this.state.inputData[i][j];
+
+               if (input === cell.letter && cell.word.length > 1) {
+                  console.log("continue");
+                  continue;
+               }
+
+               console.log(input);
+
+               if (input) {
+                  attempted = true;
+               }
+            }
+         }
+      }
+      return attempted;
+   };
+
    markWordsFromSelection = (selection) => {
       let cell = this.boardArray[selection[1]][selection[0]];
 
@@ -230,11 +256,28 @@ class Crossword extends Component {
       let newCorrectWords = [...this.state.correctWords];
 
       for (var i = 0; i < cell.word.length; i++) {
-         newCorrectWords[cell.word[i]] = this.markWord(cell.word[i]);
+         const correct = this.markWord(cell.word[i]);
+         newCorrectWords[cell.word[i]] = correct;
+      }
+
+      let newIncompleteWords = [...this.state.incompleteWords];
+
+      if (newCorrectWords[this.state.selectedWord] === true) {
+         newIncompleteWords[this.state.selectedWord] = false;
+      } else {
+         newIncompleteWords[this.state.selectedWord] = this.checkWordAttemtped(
+            this.state.selectedWord
+         );
+         // if (cell.word.length == 2) {
+         //    newIncompleteWords[cell.word[1]] = this.checkWordAttemtped(
+         //       cell.word[1]
+         //    );
+         // }
       }
 
       this.setState({
          correctWords: newCorrectWords,
+         incompleteWords: newIncompleteWords,
       });
 
       // setTimeout(() => {
@@ -243,6 +286,9 @@ class Crossword extends Component {
    };
 
    onKeyDown = (e) => {
+      if (this.state.allCorrect) {
+         return;
+      }
       if (e.keyCode === 9 && document.activeElement === this.inputRef.current) {
          e.preventDefault();
          let nextWord;
@@ -312,6 +358,9 @@ class Crossword extends Component {
    };
 
    handleInput = (e) => {
+      if (this.state.allCorrect) {
+         return;
+      }
       let oldSelection = [...this.state.selection];
       let tempCrossWordData = this.state.inputData;
       const isLetter = (str) => {
@@ -366,10 +415,13 @@ class Crossword extends Component {
          }
       }
       if (allCorrect) {
-         this.props.onLevelCompleted();
+         setTimeout(() => {
+            this.props.onLevelCompleted();
+         }, 5000);
       }
 
       this.setState({
+         allCorrect: allCorrect,
          selection: nextCell,
          inputData: tempCrossWordData,
       });
@@ -425,6 +477,13 @@ class Crossword extends Component {
                isKey = this.wordData[boardCell.word[0]].index;
             }
 
+            let incomplete = false;
+            for (var i = 0; i < boardCell.word.length; i++) {
+               if (this.state.incompleteWords[boardCell.word[i]]) {
+                  incomplete = true;
+               }
+            }
+
             let correct = false; //item === boardCell.letter;
 
             for (var i = 0; i < boardCell.word.length; i++) {
@@ -434,9 +493,9 @@ class Crossword extends Component {
             }
 
             let letterOutput = item;
-
             if (this.props.showAnswers) {
                letterOutput = boardCell.letter;
+               correct = true;
             }
 
             // console.log(isKey);
@@ -454,8 +513,10 @@ class Crossword extends Component {
                      width={`${boxSize - 1}`}
                      height={`${boxSize - 1}`}
                      className={`crossword__cell ${
-                        highlight ? "highlight " : ""
-                     }${select ? "select " : ""}${correct ? "correct " : ""}`}
+                        incomplete ? "incomplete" : ""
+                     } ${correct ? "correct" : ""} ${select ? "select" : ""} ${
+                        highlight ? "highlight" : ""
+                     }`}
                   ></rect>
 
                   {isKey !== null && (
@@ -488,6 +549,8 @@ class Crossword extends Component {
       if (!this.props.showGame) {
          return <></>;
       }
+
+      console.log(this.state.incompleteWords);
 
       return (
          <div className="crossword">

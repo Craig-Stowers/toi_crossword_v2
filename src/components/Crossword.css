@@ -36,16 +36,23 @@
    /* pointer-events: none; */
 }
 
+.crossword__cell.incomplete {
+   fill: #e78c91;
+   /* opacity: 0.8; */
+
+   /* pointer-events: none; */
+}
+
 .crossword__cell.highlight {
    cursor: pointer;
 
-   fill: #d16267;
+   fill: #c2cfdd;
 
    /* pointer-events: none; */
 }
 
 .crossword__cell.select {
-   fill: #dd898d;
+   fill: #dbe1e7;
 }
 
 .crossword__cell.correct {
@@ -114,17 +121,21 @@
 
 .hints ul {
    list-style-type: none;
-   padding-left: 14px;
+   padding-left: 10px;
+   padding-right: 10px;
 }
 
 .hints li {
-   margin-bottom: 8px;
+   /* margin-bottom: 5px; */
+   padding: 4px;
+   padding-left: 7px;
    font-weight: 500;
    cursor: pointer;
 }
 
 .hints .highlight {
-   color: var(--color3);
+   color: black;
+   background-color: #c5efea;
    /* color: black; */
    /* font-weight: bold; */
 }

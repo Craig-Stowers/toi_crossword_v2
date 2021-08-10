@@ -76,7 +76,7 @@ function App() {
       scorm.initScorm();
       setInitScorm(true);
 
-      const localData = JSON.parse(window.localStorage.getItem("great-minds"));
+      const localData = JSON.parse(window.localStorage.getItem("crossword"));
       const lmsData = scorm.scormProcessGetValue("cmi.suspend_data");
 
       if (lmsData) {
@@ -102,7 +102,7 @@ function App() {
       );
       // } else {
       window.localStorage.setItem(
-         "great-minds",
+         "crossword",
          JSON.stringify({ unlocks: unlocks })
       );
 
@@ -129,7 +129,7 @@ function App() {
 
    const handleOnPlay = () => {
       if (page == "TitlePage") {
-         setPage("Tutorial");
+         setPage("LevelSelect");
          return;
       }
       if (page == "Tutorial") {

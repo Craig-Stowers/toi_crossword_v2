@@ -282,6 +282,7 @@ class Crossword extends Component {
    };
 
    onKeyDown = (e) => {
+      this.props.forceHideAnswers();
       if (this.state.allCorrect) {
          return;
       }

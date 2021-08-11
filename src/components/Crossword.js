@@ -6,12 +6,9 @@ const boxSize = 40;
 
 class Crossword extends Component {
    constructor(props) {
-      console.log("new crossword");
       super(props);
 
       this.wordData = this.props.gameData[this.props.selectedLevel].wordData; //this.props.wordData;
-
-      console.log(this.wordData);
 
       this.columns = Math.max(
          ...this.wordData.map(
@@ -94,6 +91,7 @@ class Crossword extends Component {
    equals = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
 
    onCellClicked = ([column, row]) => {
+      this.props.forceHideAnswers();
       if (!this.boardArray[row][column]) {
          return;
       }
@@ -356,6 +354,7 @@ class Crossword extends Component {
    };
 
    handleInput = (e) => {
+      this.props.forceHideAnswers();
       if (this.state.allCorrect) {
          return;
       }

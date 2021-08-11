@@ -195,7 +195,7 @@ function App() {
             level={selectedLevel}
             showButtons={showButtons}
             disableNext={!levelsUnlocked[selectedLevel + 1]}
-            disableNextLevel={selectedLevel >= gameData.length - 1}
+            hideNext={selectedLevel === gameData.length - 1}
             onInfoClick={handleInfoClick}
             onExitLevel={handleExitLevel}
             onNextLevel={handleNextLevel}
@@ -251,6 +251,9 @@ function App() {
                      onLoaded={() => {
                         setGameLoaded(true);
                      }}
+                     forceHideAnswers={() => {
+                        setShowAnswers(false);
+                     }}
                      onFeedback={(message) => {
                         setFeedback(message);
                      }}
@@ -288,10 +291,16 @@ function App() {
                      <div
                         className="seeAnswers"
                         onClick={() => {
-                           setShowAnswers(true);
+                           if (showAnswers) {
+                              setShowAnswers(false);
+                           } else {
+                              setShowAnswers(true);
+                           }
                         }}
                      >
-                        <span>Check answers</span>
+                        <span>{`${
+                           !showAnswers ? "See answers" : "Hide answers"
+                        }`}</span>
                      </div>
                   </div>
                )}

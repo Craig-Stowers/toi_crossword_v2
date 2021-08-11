@@ -32,41 +32,20 @@ function Header(props) {
                      props.onInfoClick();
                   }}
                />
-               <img
-                  className={`generic-button ${
-                     props.disableNext ? "disable" : null
-                  }`}
-                  src={nextLevel}
-                  onClick={() => {
-                     props.onNextLevel();
-                  }}
-               />
+
+               {!props.hideNext && (
+                  <img
+                     className={`generic-button ${
+                        props.disableNext ? "disable" : null
+                     }`}
+                     src={nextLevel}
+                     onClick={() => {
+                        props.onNextLevel();
+                     }}
+                  />
+               )}
             </div>
          )}
-
-         {/* <h1>{props.title}</h1> */}
-         {/* <div className="Header__buttons">
-               <Button size="sm" onClick={() => {}}>
-                  Games centre
-               </Button>
-               <Button
-                  size="sm"
-                  onClick={props.onNextLevel}
-                  disabled={props.disableNextLevel}
-               >
-                  Next level
-               </Button>
-            </div> */}
-
-         {/* <div className="Header__bottom">
-            <span>Level {props.level + 1} | </span>
-            <span
-               className="InstructionsChangeLevel"
-               onClick={props.onShowInstructions}
-            >
-               Instructions / Change Level
-            </span>
-         </div> */}
       </div>
    );
 }

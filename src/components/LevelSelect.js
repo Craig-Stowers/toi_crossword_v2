@@ -15,10 +15,15 @@ function LevelSelect(props) {
             <p>Select a difficulty level to begin.</p>
 
             <div className={`${classes.levelsWrapper} noselect`}>
-               {props.levelsUnlocked.map((el, i) => {
+               {props.levelsUnlocked.map((unlocked, i) => {
                   return (
-                     <div className={classes.level} key={i}>
-                        {!el ? (
+                     <div
+                        className={`${classes.level} ${
+                           unlocked ? classes.showBackground : ""
+                        }`}
+                        key={i}
+                     >
+                        {!unlocked ? (
                            <div className={classes.locked}>
                               <img src={padlock} />
                            </div>

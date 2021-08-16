@@ -15,22 +15,24 @@
    border: 3px solid #3c3c3c;
 }
 
+.showBackground {
+   background-color: var(--primary);
+}
+
+.showBackground:hover {
+   filter: brightness(120%);
+}
+
 .unlocked {
    font-family: "Roboto Slab", serif;
    font-size: 34px;
    font-weight: bold;
    color: white;
 
-   background-color: var(--primary);
-
    cursor: pointer;
 
-   line-height: 64px;
+   line-height: 63px;
    vertical-align: middle;
-}
-
-.unlocked:hover {
-   filter: brightness(120%);
 }
 
 .locked {

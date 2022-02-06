@@ -46,7 +46,7 @@ const gameData = [
             pos: [0, 6],
             index: 7,
             down: true,
-            hint: "Home of the boxing day test.",
+            hint: "Home of the Boxing Day test.",
          },
          {
             word: "CRUISE",
@@ -232,7 +232,7 @@ const gameData = [
             pos: [12, 0],
             index: 2,
             down: true,
-            hint: "Straight separating Tasmania from the mainland.",
+            hint: "Strait separating Tasmania from the mainland.",
          },
          {
             word: "NEWTON",
@@ -340,7 +340,7 @@ const gameData = [
             hint: "Faces the emu in the Australian coat of arms.",
          },
          {
-            word: "KOSCIUSKO",
+            word: "KOSCIUSZKO",
             pos: [11, 3],
             index: 5,
             down: true,
@@ -354,7 +354,7 @@ const gameData = [
          },
          {
             word: "HARBOUR",
-            pos: [15, 5],
+            pos: [15, 6],
             index: 7,
             down: true,
             hint: "Sydney ferries travel across the ________.",
@@ -364,18 +364,18 @@ const gameData = [
             pos: [1, 6],
 
             index: 8,
-            hint: "Mr Bulla and Thredbo are found in the Great _______ Range.",
+            hint: "Mr Buller and Thredbo are found in the Great _______ Range.",
          },
          {
             word: "HANGING",
-            pos: [17, 6],
+            pos: [17, 7],
             index: 9,
             down: true,
             hint: "The famous rock where schoolgirls went missing during a picnic.",
          },
          {
             word: "MURRAY",
-            pos: [13, 7],
+            pos: [13, 8],
             index: 10,
 
             hint: "Australia's longest river.",
@@ -409,7 +409,7 @@ const gameData = [
          },
          {
             word: "BOOMERANG",
-            pos: [10, 11],
+            pos: [10, 12],
             index: 14,
             hint: "A returning stick.",
          },

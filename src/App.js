@@ -338,7 +338,7 @@ function App() {
                <>
                   <h2>Congratulations!</h2>
                   <p>
-                     Congratulations!, You've completed all levels of the game!
+                     You’ve completed all levels of the game!
                      <br />
                      Why not try your hand and stretch your mind with another
                      game?

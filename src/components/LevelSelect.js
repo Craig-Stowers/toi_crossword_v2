@@ -12,7 +12,7 @@ function LevelSelect(props) {
          <div className={page.panel}>
             <h2>LEVEL SELECT</h2>
 
-            <p>Select a difficulty level to begin.</p>
+            <p>Select an available level to begin.</p>
 
             <div className={`${classes.levelsWrapper} noselect`}>
                {props.levelsUnlocked.map((unlocked, i) => {

@@ -219,8 +219,31 @@ class Crossword extends Component {
       return wordPassed;
    };
 
+   // checkWordAttemtped = (wordIndex) => {
+   //    let attempted = false;
+   //    for (var i = 0; i < this.boardArray.length; i++) {
+   //       let row = this.boardArray[i];
+   //       for (var j = 0; j < row.length; j++) {
+   //          let cell = row[j];
+   //          if (cell && cell.word.includes(wordIndex)) {
+   //             const input = this.state.inputData[i][j];
+
+   //             if (input === cell.letter && cell.word.length > 1) {
+   //                continue;
+   //             }
+
+   //             if (input) {
+   //                attempted = true;
+   //             }
+   //          }
+   //       }
+   //    }
+
+   //    return attempted;
+   // };
+
    checkWordAttemtped = (wordIndex) => {
-      let attempted = false;
+      let attempted = true;
       for (var i = 0; i < this.boardArray.length; i++) {
          let row = this.boardArray[i];
          for (var j = 0; j < row.length; j++) {
@@ -228,13 +251,11 @@ class Crossword extends Component {
             if (cell && cell.word.includes(wordIndex)) {
                const input = this.state.inputData[i][j];
 
-               if (input === cell.letter && cell.word.length > 1) {
+               if (input === "") {
+                  attempted = false;
                   continue;
                }
 
-               if (input) {
-                  attempted = true;
-               }
             }
          }
       }
@@ -243,6 +264,7 @@ class Crossword extends Component {
    };
 
    markWordsFromSelection = (selection) => {
+     
       let cell = this.boardArray[selection[1]][selection[0]];
 
       if (!cell) {
@@ -253,32 +275,47 @@ class Crossword extends Component {
 
       for (var i = 0; i < cell.word.length; i++) {
          const correct = this.markWord(cell.word[i]);
+        //("mark", cell.word[i], correct)
          newCorrectWords[cell.word[i]] = correct;
       }
 
       let newIncompleteWords = [...this.state.incompleteWords];
 
-      if (newCorrectWords[this.state.selectedWord] === true) {
-         newIncompleteWords[this.state.selectedWord] = false;
-      } else {
-         newIncompleteWords[this.state.selectedWord] = this.checkWordAttemtped(
-            this.state.selectedWord
-         );
-         if (cell.word.length == 2) {
-            newIncompleteWords[cell.word[1]] = this.checkWordAttemtped(
-               cell.word[1]
+
+      for(var i = 0; i < cell.word.length; i++){
+         const word = cell.word[i];
+
+         if (newCorrectWords[word] === true) {
+            newIncompleteWords[word] = false;
+         } else {
+            newIncompleteWords[word] = this.checkWordAttemtped(
+               word
             );
          }
+
+
       }
+
+     
+
+
+      // if (newCorrectWords[this.state.selectedWord] === true) {
+      //    newIncompleteWords[this.state.selectedWord] = false;
+      // } else {
+      //    newIncompleteWords[this.state.selectedWord] = this.checkWordAttemtped(
+      //       this.state.selectedWord
+      //    );
+      //    if (cell.word.length == 2) {
+      //       newIncompleteWords[cell.word[1]] = this.checkWordAttemtped(
+      //          cell.word[1]
+      //       );
+      //    }
+      // }
 
       this.setState({
          correctWords: newCorrectWords,
          incompleteWords: newIncompleteWords,
       });
-
-      // setTimeout(() => {
-      //    console.log("DELAY", this.state.correctWords);
-      // }, 500);
    };
 
    onKeyDown = (e) => {
@@ -451,6 +488,8 @@ class Crossword extends Component {
             let boardCell = this.boardArray[yIndex][xIndex];
             let highlight = false;
 
+
+            //check if cell parent word(s) are the selected word
             if (this.state.selectedWord !== null) {
                if (boardCell.word.includes(this.state.selectedWord)) {
                   highlight = true;
@@ -548,7 +587,7 @@ class Crossword extends Component {
          return <></>;
       }
 
-      console.log(this.state.incompleteWords);
+     // console.log(this.state.incompleteWords);
 
       return (
          <div className="crossword">

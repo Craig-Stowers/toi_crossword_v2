@@ -57,8 +57,6 @@
 
 .crossword__cell.correct {
    fill: #78cbc0;
-
-   /* pointer-events: none; */
 }
 
 .content {

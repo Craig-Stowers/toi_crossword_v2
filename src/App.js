@@ -123,6 +123,10 @@ function App() {
       setCurrentGameWidth(width);
    };
 
+   useEffect(()=>{
+      window.scrollTo({top:0, left:0, duration:0.01});
+   }, [page, selectedLevel, inGameTutorial])
+
    if (!allImagesLoaded) {
       return <></>;
    }
@@ -138,11 +142,15 @@ function App() {
       }
    };
 
+   
+  // const scrollToTop = ()=> window.scrollTo({top:0, duration:0.01});
+
    const handleSelectLevel = (level) => {
       setSelectedLevel(level);
       setInGameTutorial(false);
       setShowAnswers(false);
       setPage("Game");
+      
    };
 
    const handleNextLevel = () => {

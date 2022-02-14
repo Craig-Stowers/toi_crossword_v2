@@ -364,7 +364,7 @@ const gameData = [
             pos: [1, 6],
 
             index: 8,
-            hint: "Mr Buller and Thredbo are found in the Great _______ Range.",
+            hint: "Mt Buller and Thredbo are found in the Great _______ Range.",
          },
          {
             word: "HANGING",

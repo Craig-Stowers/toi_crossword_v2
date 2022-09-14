@@ -33,7 +33,7 @@ const gameData = [
             word: "WINTER",
             pos: [7, 3],
             index: 5,
-            hint: "Season from June to September.",
+            hint: "The Season from June to September.",
          },
          {
             word: "CRICKET",

@@ -8,9 +8,9 @@
 							http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd" >
 	<organizations default="CourseID-org">
 		<organization identifier="CourseID-org">
-			<title>SquirrelBank</title>
+			<title>Crossword</title>
 			<item identifier="I_LC001" identifierref="LC001">
-				<title>SquirrelBank</title>
+				<title>Crossword</title>
 			</item>
 			<metadata>
 				<schema>ADL SCORM</schema>
